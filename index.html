@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather application</title>
+    <link rel="stylesheet" href="./style/all.min.css">
+    <link rel="stylesheet" href="./style/bootstrap.min.css">
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+
+<body>
+    <!------------------------------------ Navbar ------------------------------------>
+    <nav class="navbar navbar-expand-lg bg-opacity-50 bg-body-tertiary">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="./Images/logo.png" alt="logo">
+                Weather
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Live cameras</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Photos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input id="searchInput" class="form-control me-2" type="text" placeholder="Enter Location"
+                        aria-label="Search">
+                    <button class="btn btn-outline-success" id="searchButton" type="button">Enter</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!------------------------------------ Home ------------------------------------>
+
+    <section id="main">
+        <div class="container py-4">
+            <h1 id="weatherLocation" class="text-center my-4"></h1>
+            <div class="row mt-4">
+                <div class="col-lg-7 mx-auto col-9 p-0">
+                    <div class="w-100 px-0 pb-3">
+                        <div class="forecast-container shadow-lg mx-auto py-2 px-3 d-flex align-items-center rounded-top">
+                            <p id="forecast-day" class="m-0"></p>
+                            <p class="m-0">Now</p>
+                            <p id="forecast-date" class="m-0"></p>
+                        </div>
+                        <div class="text-white mx-auto bg-opacity-25 bg-dark shadow-lg rounded-bottom">
+                            <div
+                                class="d-flex flex-column justify-content-center align-items-center text-center py-2 px-3 rounded-bottom">
+                                <h3 id="todaysDegree"></h3>
+                                <h5 id="cTodaysDegree"></h5>
+                                <h5 id="fTodaysDegree"></h5>
+                                <img src="" id="todaysIcon" alt="weatherIcon">
+                                <h4 id="todaysCondition"></h4>
+                                <div class="w-100 d-flex justify-content-around align-items-center">
+                                    <span>
+                                        <img class="my-1" src="./Images/icon-umberella.png" alt="humidity">
+                                        <h5 id="todaysHumidity"></h5>
+                                    </span>
+                                    <span>
+                                        <img class="my-1" src="./Images/icon-wind.png" alt="wind">
+                                        <h5 id="todaysWind"></h5>
+                                    </span>
+                                    <span>
+                                        <img class="my-1" src="./Images/icon-compass.png" alt="direction">
+                                        <h5 id="todaysDirection"></h5>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-1 gx-5">
+                <div class="col-lg-5 mx-auto mb-3 col-8 p-0">
+                    <div class="w-100 p-0">
+                        <div class="m-0 forecast-container shadow-lg mx-auto py-2 px-3 d-flex align-items-center rounded-top">
+                            <p class="m-0 forecast-day"></p>
+                            <p class="m-0 forecast-date"></p>
+                        </div>
+                        <div class="m-0 text-white mx-auto bg-opacity-25 bg-dark shadow-lg rounded-bottom">
+                            <div
+                                class="d-flex flex-column justify-content-center align-items-center text-center py-2 px-3 rounded-bottom">
+                                <h3 class="cDaysDegree"></h3>
+                                <h3 class="fDaysDegree"></h3>
+                                <img src="" class="todaysIcon" alt="weatherIcon">
+                                <h4 class="todaysCondition"></h4>
+                                <div class="w-100 d-flex justify-content-around align-items-center">
+                                    <span>
+                                        <img class="my-1" src="./Images/icon-umberella.png" alt="humidity">
+                                        <h5 class="todaysHumidity"></h5>
+                                    </span>
+                                    <span>
+                                        <img class="my-1" src="./Images/icon-wind.png" alt="wind">
+                                        <h5 class="todaysWind"></h5>
+                                    </span>
+                                    <span>
+                                        <img class="my-1" src="./Images/icon-compass.png" alt="direction">
+                                        <h5 class="todaysDirection"></h5>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 mx-auto mb-3 col-8 p-0">
+                    <div class="w-100 p-0">
+                        <div class="m-0 forecast-container shadow-lg mx-auto py-2 px-3 d-flex align-items-center rounded-top">
+                            <p class="m-0 forecast-day"></p>
+                            <p class="m-0 forecast-date"></p>
+                        </div>
+                        <div class="m-0 text-white mx-auto bg-opacity-25 bg-dark shadow-lg rounded-bottom">
+                            <div
+                                class="d-flex flex-column justify-content-center align-items-center text-center py-2 px-3 rounded-bottom">
+                                <h3 class="cDaysDegree"></h3>
+                                <h3 class="fDaysDegree"></h3>
+                                <img src="" class="todaysIcon" alt="weatherIcon">
+                                <h4 class="todaysCondition"></h4>
+                                <div class="w-100 d-flex justify-content-around align-items-center">
+                                    <span>
+                                        <img class="my-1" src="./Images/icon-umberella.png" alt="humidity">
+                                        <h5 class="todaysHumidity"></h5>
+                                    </span>
+                                    <span>
+                                        <img class="my-1" src="./Images/icon-wind.png" alt="wind">
+                                        <h5 class="todaysWind"></h5>
+                                    </span>
+                                    <span>
+                                        <img class="my-1" src="./Images/icon-compass.png" alt="direction">
+                                        <h5 class="todaysDirection"></h5>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!------------------------------------ Footer ------------------------------------>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <form action="#" class="w-100 ">
+                        <div class="mb-3 w-75 d-inline-block">
+                            <label for="exampleFormControlInput1" class="form-label">Enter your email address to subscribe</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                          </div>
+                        <button class="btn-outline-danger btn py-1 px-3 ms-1" type="button">Subscribe</button>
+                    </form>
+                </div>
+                <div class="col-md-3 col-md-offset-1 d-flex justify-content-center align-items-center">
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-google-plus"></i></a>
+                        <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            <p class="colophon my-3">Copyright 2025 KareemDev Company Limited. Designed by KareemE. All rights reserved</p>
+        </div>
+    </footer>
+
+    <!------------------------------------ Scripts ------------------------------------>
+
+    <script src="./JavaScript/bootstrap.min.js"></script>
+    <!-- <script src="./JavaScript/bootstrap.min.js.map"></script> -->
+    <script src="./JavaScript/main.js"></script>
+</body>
+
+</html>
