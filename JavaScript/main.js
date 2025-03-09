@@ -1,3 +1,4 @@
+let weatherData ;
 let weatherLocation = document.querySelector('#weatherLocation');
 let searchButton = document.querySelector('#searchButton');
 let searchInput = document.querySelector('#searchInput');
@@ -20,14 +21,13 @@ let daysWind = document.querySelectorAll('.todaysWind');
 let daysDirection = document.querySelectorAll('.todaysDirection');
 let cTodaysDegree = document.querySelector('#cTodaysDegree')
 let fTodaysDegree = document.querySelector('#fTodaysDegree')
-
-console.log(fDaysDegree);
+let subButton = document.querySelector('#subButton')
+let subscribeFormControlInput = document.querySelector('#subscribeFormControlInput')
 
 // Fetch API Data
 async function getWeatherData(city) {
     let weatherApiResponse = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=7d77b96c972b4d119a3151101212704&q=${city}&days=3`)
     let weatherApiData = await weatherApiResponse.json();
-    console.log(weatherApiData);
     return weatherApiData;
 }
 
@@ -67,7 +67,7 @@ function displaySecondaryData(data) {
 
 // Starting Application
 async function applicationStart(city = "cairo") {
-    let weatherData = await getWeatherData(city)
+    weatherData = await getWeatherData(city)
     if (!weatherData.error) {
         displayMainData(weatherData)
         displaySecondaryData(weatherData)
@@ -76,6 +76,14 @@ async function applicationStart(city = "cairo") {
 
 applicationStart();
 
+// Handling Search
 searchButton.addEventListener('click', () => {
     applicationStart(searchInput.value)
+})
+
+// For Devs
+subButton.addEventListener('click', () => {
+    if (subscribeFormControlInput.value == "devLog") {
+        console.log(weatherData);    
+    }
 })
